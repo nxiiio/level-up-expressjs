@@ -8,4 +8,6 @@ app.use(cors())
 app.use(helmet())
 app.use(express.json())
 
+app.use('/products', require('./routes/products'))
+
 module.exports = app;
