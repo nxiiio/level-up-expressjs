@@ -1,0 +1,49 @@
+# Node.js modules
+node_modules/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Dependencias de desarrollo de Node.js
+*.tgz
+
+# Archivos de entorno
+.env
+
+# Directorios de compilación y otros archivos generados
+/dist
+/build
+/.next
+/out
+
+# Archivos de sistema
+.DS_Store
+Thumbs.db
+
+# Archivos de editor
+.idea/
+.vscode/
+
+# Test Coverage
+coverage/
+
+# archivos temporales
+*.log
+*.pid
+*.seed
+*.swp
+
+# Archivos generados por IDE o editor
+*.sublime-workspace
+*.sublime-project
+*.vscode/
+
+# Archivos de configuración de npm o yarn
+npm-shrinkwrap.json
+package-lock.json
+
+# Archivos binarios de dependencias de Node.js
+*.tar
+*.zip
