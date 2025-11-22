@@ -1,4 +1,4 @@
-const supabase = require('../config/supabase')
+import supabase from '../config/supabase.js'
 
 // OBTENER TODOS LOS PRODUCTOS
 const getProducts = async (categoryId = null) => {
@@ -37,25 +37,24 @@ const createProduct = async (productData) => {
         .insert([productData])
         .select()
         .single()
-    if (error) {
-        throw new Error(error.message)
-    }
-    return data
-}
+
+    if (error) throw new Error(error.message);
+    return data;
+};
 
 // ELIMINAR PRODUCTO
 const deleteProduct = async (id) => {
-    const { error } = await supabase
+    const { data, error } = await supabase
         .from('productos')
         .delete()
         .eq('id', id)
     if (error) {
         throw new Error(error.message)
     }
-    return { message: 'Producto eliminado exitosamente' }
+    return data
 }
 
-module.exports = {
+export default {
     getProducts,
     getProductById,
     createProduct,
