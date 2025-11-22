@@ -30,7 +30,33 @@ const getProductById = async (id) => {
     return data
 }
 
+// CREAR PRODUCTO
+const createProduct = async (productData) => {
+    const { data, error } = await supabase
+        .from('productos')
+        .insert([productData])
+        .select()
+        .single()
+
+    if (error) throw new Error(error.message);
+    return data;
+};
+
+// ELIMINAR PRODUCTO
+const deleteProduct = async (id) => {
+    const { data, error } = await supabase
+        .from('productos')
+        .delete()
+        .eq('id', id)
+    if (error) {
+        throw new Error(error.message)
+    }
+    return data
+}
+
 module.exports = {
     getProducts,
-    getProductById
+    getProductById,
+    createProduct,
+    deleteProduct
 }
