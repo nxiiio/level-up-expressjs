@@ -10,8 +10,9 @@ const errorHandler = (err, req, res, next) => {
                 field: error.path.join('.'),
                 message: error.message
             }))
-        });
+        })
     }
+
 
     if (err.message && (err.message.includes('not found'))) {
         return res.status(404).json({
@@ -19,6 +20,7 @@ const errorHandler = (err, req, res, next) => {
             message: err.message
         });
     }
+
     if (err.statusCode) {
         return res.status(err.statusCode).json({
             success: false,
@@ -26,11 +28,10 @@ const errorHandler = (err, req, res, next) => {
         });
     }
 
-    console.error('Error:', err);
     return res.status(500).json({
         success: false,
         message: 'Server internal error',
-        error: err.message
+        error: err.message // Solo para desarrollo
     });
 };
 

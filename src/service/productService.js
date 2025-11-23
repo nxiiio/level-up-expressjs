@@ -45,7 +45,6 @@ const createProduct = async (productData) => {
         .insert([productData])
         .select()
         .single()
-
     if (error) throw new Error(error.message);
     return data;
 }

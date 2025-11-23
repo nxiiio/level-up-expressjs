@@ -36,12 +36,6 @@ const createProduct = catchAsync(async (req, res) => {
 const deleteProduct = catchAsync(async (req, res) => {
     const { id } = req.params;
     
-    if (!id) {
-        const error = new Error('Se requiere el ID del producto para eliminarlo.');
-        error.statusCode = 400;
-        throw error;
-    }
-
     await productService.deleteProduct(id);
 
     res.status(204).json({
